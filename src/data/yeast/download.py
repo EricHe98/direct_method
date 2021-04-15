@@ -4,10 +4,9 @@ import pathlib
 
 name = 'yeast'
 
-data = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/{name}/{name}.data'.format(name=name), header=None)
+data = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/{name}/{name}.data'.format(name=name), sep=r"\s+", header=None)
 
-data.columns = ['sequence', 'mcg',
-	'gvh', 'alm', 'mit', 'erl', 'pox', 'vac', 'nuc']
+data.columns = ['sequence', 'mcg', 'gvh', 'alm', 'mit', 'erl', 'pox', 'vac', 'nuc', 'class']
 
 out_dir = 'data/{}/processed/'.format(name)
 os.system('mkdir -p {}'.format(out_dir))
